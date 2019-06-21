@@ -1,0 +1,13 @@
+{
+  AWSTemplateFormatVersion: '2010-09-09',
+  Description: 'Plutora Test',
+  Resources: {
+    EC2Instance: {
+      Type: 'AWS::EC2::Instance',
+      Properties: {
+        InstanceType: 't2.micro',
+        ImageId: 'ami-0756fbca465a59a30',
+      },
+    },
+  },
+}
