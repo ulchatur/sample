@@ -1,0 +1,21 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: False
+  vars_files:
+    aws_keys.yml
+  tasks:
+    - name: Launch the new EC2 Instance
+      ec2:
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        group: webservers_sg
+        instance_type: t2.micro
+        image: ami-035b3c7efe6d061d5
+        wait: true
+        region: us-east-1
+        keypair: newone
+        count: 1
+        vpc_subnet_id: subnet-d54ac3b2
+        wait: yes
+        assign_public_ip: yes
